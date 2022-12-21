@@ -1,15 +1,19 @@
 import Axios from "axios";
 
-const getAll = (url) => Axios.get(url);
+const allurl = 'http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/'
 
-const getById = (url, id) => Axios.get(`${url}/${id}`);
+const getAll = (url) => Axios.get(`${allurl}/${url}`);
 
-const addObj = (url, obj, key) => Axios.post(url, obj,{headers:{"x-api-key":key}});
+const getAllapi = (url) => Axios.get(url);
 
-const updateObj = (url, id, obj, key) => Axios.put(`${url}/${id}`, obj,{headers:{"x-api-key":key}});
+const getById = (url, id) => Axios.get(`${allurl}/${url}/${id}`);
 
-const deleteObj = (url, id, key) => Axios.delete(`${url}/${id}`,{headers:{"x-api-key":key}});
+const addObj = (url, obj, key) => Axios.post(`${allurl}/${url}`, obj,{headers:{"x-api-key":key}});
 
-const gettodosbyid = (url, id) => Axios.get(`${url}?userId=${id}`);
+const updateObj = (url, id, obj, key) => Axios.put(`${allurl}/${url}/${id}`, obj,{headers:{"x-api-key":key}});
 
-export { getAll, getById, addObj, updateObj, deleteObj, gettodosbyid };
+const deleteObj = (url, id, key) => Axios.delete(`${allurl}/${url}/${id}`,{headers:{"x-api-key":key}});
+
+const gettodosbyid = (url, id) => Axios.get(`${allurl}/${url}?userId=${id}`);
+
+export { getAll, getById, addObj, updateObj, deleteObj, gettodosbyid,getAllapi };

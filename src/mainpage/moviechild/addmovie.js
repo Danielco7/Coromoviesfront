@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAll, addObj, deleteObj, updateObj } from "../../utils";
+import { getAll, getAllapi } from "../../utils";
 import Logo from "../../imgs/add_movie.svg";
 import SearchBar from "./Search_new_movie";
 
@@ -20,7 +20,7 @@ function AddMovie(props) {
 
   useEffect(() => {
     async function getmovies() {
-      const { data } = await getAll(urlmovie);
+      const { data } = await getAllapi(urlmovie);
       setMovieToShow(data.results);
     }
     getmovies();

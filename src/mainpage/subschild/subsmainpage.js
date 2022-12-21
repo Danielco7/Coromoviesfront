@@ -9,8 +9,6 @@ import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 
-const urlmembers = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Members";
-const urlsubs = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Subs";
 
 function SubsPage(props) {
   const [Members, setMembers] = useState({});
@@ -26,7 +24,7 @@ function SubsPage(props) {
 
   useEffect(() => {
     const getmembers = async () => {
-      const { data } = await getAll(urlmembers);
+      const { data } = await getAll("/Members");
       setMembers(data);
       setBackUpMembersArry(data);
       setcheckallmembers(true);
@@ -68,8 +66,8 @@ function SubsPage(props) {
     let key = {}
     key = localStorage.getItem("token");
     try {
-      const { data1 } = await addObj(urlmembers, e, key);
-      const { data } = await getAll(urlmembers);
+      const { data1 } = await addObj("/Members", e, key);
+      const { data } = await getAll("/Members");
       setMembers(data);
       setBackUpMembersArry(data); 
     } catch (error) {
@@ -79,16 +77,16 @@ function SubsPage(props) {
 
   const Delete = async (e) => {
     if (BackUpMembersArry.length > 10) {
-      const { data } = await getAll(urlsubs);
+      const { data } = await getAll("/Subs");
       const filtered = data.find((meb) => meb.memberId === e._id);
       if (filtered != undefined) {
-        const { data: data2 } = await deleteObj(urlsubs, filtered._id);
+        const { data: data2 } = await deleteObj("/Subs", filtered._id);
       }
       let key = {}
       key = localStorage.getItem("token");
       try {
-        const { data: data3 } = await deleteObj(urlmembers, e._id,key);
-        const { data: data4 } = await getAll(urlmembers);
+        const { data: data3 } = await deleteObj("/Members", e._id,key);
+        const { data: data4 } = await getAll("/Members");
         setMembers(data4);
         setBackUpMembersArry(data4);
       } catch (error) {
@@ -112,8 +110,8 @@ function SubsPage(props) {
     let key = {}
     key = localStorage.getItem("token");
     try {
-      const { data: data1 } = await updateObj(urlmembers, e._id, e,key);
-      const { data } = await getAll(urlmembers);
+      const { data: data1 } = await updateObj("/Members", e._id, e,key);
+      const { data } = await getAll("/Members");
       setMembers(data);
       setcheckallmembers(true);
       setcheckaddmember(false);

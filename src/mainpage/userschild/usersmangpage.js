@@ -9,7 +9,6 @@ import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 
-const usersurl = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Users";
 
 function UsersPage(props) {
   const [Users, setusers] = useState({});
@@ -21,7 +20,7 @@ function UsersPage(props) {
 
   useEffect(() => {
     async function getusers() {
-      const { data } = await getAll(usersurl);
+      const { data } = await getAll("/Users");
       await setallusers(data);
       data.splice(0, 2);
       await setusers(data);
@@ -58,8 +57,8 @@ function UsersPage(props) {
   async function Update(e) {
     let key = {}
     key = localStorage.getItem("token");
-    try { const { data2 } = await updateObj(usersurl, e._id, e,key);
-    const { data } = await getAll(usersurl);
+    try { const { data2 } = await updateObj("/Users", e._id, e,key);
+    const { data } = await getAll("/Users");
     data.splice(0, 2);
     await setusers(data);
     await setcheckusers(false);
@@ -75,8 +74,8 @@ function UsersPage(props) {
     let key = {}
     key = localStorage.getItem("token");
     try {
-      const { data2 } = await addObj(usersurl, e, key);
-      const { data } = await getAll(usersurl);
+      const { data2 } = await addObj("/Users", e, key);
+      const { data } = await getAll("/Users");
       data.splice(0, 2);
       await setusers(data);
       await setcheckusers(true);
@@ -94,8 +93,8 @@ function UsersPage(props) {
       let key = {}
       key = localStorage.getItem("token");
       try {
-        const { data2 } = await deleteObj(usersurl, e._id,key);
-        const { data } = await getAll(usersurl);
+        const { data2 } = await deleteObj("/Users", e._id,key);
+        const { data } = await getAll("/Users");
         data.splice(0, 2);
         await setusers(data);
       } catch (error) {

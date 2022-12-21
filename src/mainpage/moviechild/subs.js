@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAll, addObj, getById } from "../../utils";
-const urlsubs = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Subs";
-const urlmembers = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Members";
+import { getAll, getById } from "../../utils";
 
 function Subs(props) {
   const [allsubs, setsubs] = useState([]);
@@ -9,7 +7,7 @@ function Subs(props) {
   useEffect(() => {
     const getsubs = async () => {
       setsubs([]);
-      const { data } = await getAll(urlsubs);
+      const { data } = await getAll("/Subs");
       const filtered = data.filter((meb) =>
         meb.movies.some((elm) => elm.movieId === props.movie._id)
       );
@@ -22,7 +20,7 @@ function Subs(props) {
         for (let i = 0; i < array1.length; i++) {
           const element2 = array1[i];
 
-          const { data } = await getById(urlmembers, element.memberId);
+          const { data } = await getById("/Members", element.memberId);
           const obj = {
             date: element2.date,
             member: data.name,

@@ -5,6 +5,7 @@ import {
   Routes,
   Route,
   Redirect,
+  HashRouter
 } from "react-router-dom";
 import MainRouter from "../mainpage/mainrouter";
 import Logging from "./Loggingpage";
@@ -12,12 +13,12 @@ import Logging from "./Loggingpage";
 function MainComp() {
   return (
     <div>
-      <Router>
+      <HashRouter>
         <Switch>
           <Route path="/" component={Logging} exact />
           <Route path="/main/:name?" component={MainRouter} />
         </Switch>
-      </Router>
+      </HashRouter>
     </div>
   );
 }

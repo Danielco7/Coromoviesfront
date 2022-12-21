@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAll, addObj, getById, updateObj, deleteObj } from "../../utils";
 import Newsubs from "./addsusb";
-const urlsubs = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Subs";
-const urlmembers = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Members";
-const urlmovie = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Movies";
 
 function MovieSubs(props) {
   const [All_Subs, setsubs] = useState(false);
@@ -15,7 +12,7 @@ function MovieSubs(props) {
 
   useEffect(() => {
     const getsubs = async () => {
-      const { data } = await getAll(urlsubs);
+      const { data } = await getAll("/Subs");
       let filtered = data.find((meb) => meb.memberId === props.member._id);
       const allsubmovies = [];
       const allneedtosetsubs = [];
@@ -25,7 +22,7 @@ function MovieSubs(props) {
         const movies = filtered.movies;
         for (let i = 0; i < movies.length; i++) {
           const elementt = movies[i];
-          const { data } = await getById(urlmovie, elementt.movieId);
+          const { data } = await getById("/Movies", elementt.movieId);
           if (data !== undefined) {
             const obj = {
               name: data.name,
@@ -43,7 +40,7 @@ function MovieSubs(props) {
           }
         }
         filtered.movies = allneedtosetsubs;
-        const { data } = await updateObj(urlsubs, filtered._id, filtered);
+        const { data } = await updateObj("/Subs", filtered._id, filtered);
       }
       setsubedmovies(allsubmovies);
       setneedtodel(allneedtosetsubs);
@@ -53,7 +50,7 @@ function MovieSubs(props) {
   }, []);
 
   const newsubscribe = async () => {
-    const { data } = await getAll(urlmovie);
+    const { data } = await getAll("/Movies");
     setallmovies(data);
     setnewsub(true);
     setsubs(false);
@@ -68,12 +65,12 @@ function MovieSubs(props) {
     let key = {};
     key = localStorage.getItem("token");
     if (suber._id == undefined) {
-      const { data } = await addObj(urlsubs, obj, key);
+      const { data } = await addObj("/Subs", obj, key);
     } else {
-      const { data } = await updateObj(urlsubs, suber._id, obj, key);
+      const { data } = await updateObj("/Subs", suber._id, obj, key);
     }
     setnewsub(false);
-    const { data } = await getAll(urlsubs);
+    const { data } = await getAll("/Subs");
     const filtered = data.find((meb) => meb.memberId === props.member._id);
     const allsubmovies = [];
 
@@ -82,7 +79,7 @@ function MovieSubs(props) {
       const movies = filtered.movies;
       for (let i = 0; i < movies.length; i++) {
         const elementt = movies[i];
-        const { data } = await getById(urlmovie, elementt.movieId);
+        const { data } = await getById("/Movies", elementt.movieId);
         if (data !== undefined) {
           const obj = {
             name: data.name,

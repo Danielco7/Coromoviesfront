@@ -5,7 +5,6 @@ import UsersPage from "./userschild/usersmangpage";
 import SubsPage from "./subschild/subsmainpage";
 import "../css/menu.css";
 import Info_messge from "./info_messge";
-const urlusers = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Users";
 
 function MainRouter({ match, history }) {
   const [name] = useState(match.params.name);
@@ -29,7 +28,7 @@ function MainRouter({ match, history }) {
 
   useEffect(() => {
     async function getmovies() {
-      const { data } = await getAll(urlusers);
+      const { data } = await getAll("/Users");
       const found = data.find(function (element) {
         return element.username === name;
       });

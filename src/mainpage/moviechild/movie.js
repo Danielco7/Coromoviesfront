@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Subs from "./subs";
-import { CSSTransition } from "react-transition-group";
-import ShowMovie from "./Movieshower";
-const urlsubs = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Subs";
 const urlimgs = "https://image.tmdb.org/t/p/w500";
 
 function Movie(props) {

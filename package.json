@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "homepage": "https://danielco7.github.io/coromoviesclient",
+  "homepage": "https://danielco7.github.io/Coromoviesfront",
   "proxy": "http://localhost:5000",
   "version": "0.1.0",
   "private": true,
@@ -45,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }

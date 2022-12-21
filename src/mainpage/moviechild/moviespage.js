@@ -10,9 +10,7 @@ import EditMovie from "./editmovie";
 import ShowMovie from "./Movieshower";
 import Logo from "../../imgs/love_info.svg";
 import Info_messge from "../info_messge";
-import { get } from "mongoose";
 
-// import Movieurl from '../../api/movies'
 
 SwiperCore.use([Navigation, Pagination]);
 function MoviesPage(props) {
@@ -29,20 +27,19 @@ function MoviesPage(props) {
   const [scrolled, setScrolled] = useState(0);
   const moviesection = useRef(null);
 
-  const urlmovie = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Movies";
 
   useEffect(() => {
     let counter = 0;
     const checkdisplay = async () => {
       if (props.moviedisplay.length > 0) {
-        const { data } = await getAll(urlmovie);
+        const { data } = await getAll("/Movies");
         const filtered = data.find((meb) => meb.name === props.moviedisplay);
         imgclick(filtered);
         counter = 1;
       }
     };
     const getmovies = async () => {
-      const { data } = await getAll(urlmovie);
+      const { data } = await getAll("/Movies");
       setMovies(data);
       setBackUpMoviesArry(data);
       if (counter === 0) {
@@ -91,8 +88,8 @@ function MoviesPage(props) {
       let key = {};
       key = localStorage.getItem("token");
       try {
-        const { data2 } = await addObj(urlmovie, e, key);
-        const { data } = await getAll(urlmovie);
+        const { data2 } = await addObj("/Movies", e, key);
+        const { data } = await getAll("/Movies");
         setMovies(data);
         setBackUpMoviesArry(data);
       } catch (error) {
@@ -107,8 +104,8 @@ function MoviesPage(props) {
       let key = {};
       key = localStorage.getItem("token");
       try {
-        const { data: data1 } = await deleteObj(urlmovie, e._id, key);
-        const { data } = await getAll(urlmovie);
+        const { data: data1 } = await deleteObj("/Movies", e._id, key);
+        const { data } = await getAll("/Movies");
         setMovies(data);
         setBackUpMoviesArry(data);
       } catch (error) {
@@ -143,8 +140,8 @@ function MoviesPage(props) {
     let key = {};
     key = localStorage.getItem("token");
     try {
-      const { data2 } = await updateObj(urlmovie, e._id, e, key);
-      const { data } = await getAll(urlmovie);
+      const { data2 } = await updateObj("/Movies", e._id, e, key);
+      const { data } = await getAll("/Movies");
       setMovies(data);
       setDisplayAllMovies(true);
       setDisplayAddMoviePage(false);
@@ -155,12 +152,6 @@ function MoviesPage(props) {
       setDisplayAddMoviePage(false);
       setDisplayEditMoviePage(false);
     }
-    // const { data: data1 } = await updateObj(urlmovie, e._id, e);
-    // const { data } = await getAll(urlmovie);
-    // setMovies(data);
-    // setDisplayAllMovies(true);
-    // setDisplayAddMoviePage(false);
-    // setDisplayEditMoviePage(false);
   };
   const membertoshow = async (e) => props.showmember(e);
 

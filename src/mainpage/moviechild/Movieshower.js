@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Subs from "./subs";
 import Logo from "../../imgs/display_movie.svg";
-import { getAll, addObj, deleteObj, updateObj } from "../../utils";
+import { getAll, getAllapi } from "../../utils";
 
 const urlmovie = "https://api.themoviedb.org/3/movie/";
 const api = "?api_key=839f4ba0e44105f4dc52e2a5d002041c&language=en-US";
-const urlmembers = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Members";
 const urlimgs = "https://image.tmdb.org/t/p/w500";
 
 function ShowMovie(props) {
@@ -14,7 +13,7 @@ function ShowMovie(props) {
 
   useEffect(() => {
     async function getmovie() {
-      const { data } = await getAll(urlmovie + props.movie.id + api);
+      const { data } = await getAllapi(urlmovie + props.movie.id + api);
       setmoviedata(data);
     }
     getmovie();
