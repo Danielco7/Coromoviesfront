@@ -10,8 +10,6 @@ import { getAll, updateObj, addObj, deleteObj } from "../utils";
 import "../css/loginpage.css";
 import Logo from "../imgs/love_info.svg";
 
-const urlmovie = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Movies";
-const urlmembers = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Members";
 const url = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Users";
 
 function Logging({ history }) {
@@ -63,8 +61,8 @@ function Logging({ history }) {
         );
       else {
         found.password = User.Password;
-        const requestOptions = (url, NewUser) => {
-          fetch(`${url}/login`, {
+        const requestOptions = (ur1, NewUser) => {
+          fetch("http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Users/login", {
             method: "post",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(NewUser),
@@ -80,7 +78,7 @@ function Logging({ history }) {
               console.error("Error:", error);
             });
         };
-        requestOptions(url, found);
+        requestOptions("http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Users/login", found);
       }
     } else {
       Changepassword();
@@ -92,27 +90,27 @@ function Logging({ history }) {
     loader.style.zIndex = "2";
 
     const remove = async () => {
-      const { data: data1 } = await getAll(urlmovie);
+      const { data: data1 } = await getAll("/Movies");
       if (data1.length > 0) {
         for (let i = 0; i < data1.length; i++) {
           const element = data1[i];
-          const { data: data11 } = await deleteObj(urlmovie, element._id);
+          const { data: data11 } = await deleteObj("/Movies", element._id);
         }
       }
 
-      const { data: data2 } = await getAll(urlmembers);
+      const { data: data2 } = await getAll("/Members");
       if (data2.length > 0) {
         for (let i = 0; i < data2.length; i++) {
           const element = data2[i];
-          const { data: data22 } = await deleteObj(urlmembers, element._id);
+          const { data: data22 } = await deleteObj("/Members", element._id);
         }
       }
 
-      const { data: data3 } = await getAll(url);
+      const { data: data3 } = await getAll("/Users");
       if (data3.length > 0) {
         for (let i = 0; i < data3.length; i++) {
           const element = data3[i];
-          const { data: data33 } = await deleteObj(url, element._id);
+          const { data: data33 } = await deleteObj("/Users", element._id);
         }
       }
     };
@@ -120,7 +118,7 @@ function Logging({ history }) {
   };
 
   const Changepassword = async () => {
-    const { data } = await getAll(url);
+    const { data } = await getAll("/Users");
     const usertobefound = data.find(function (eachuser) {
       return eachuser.username === user.username;
     });
@@ -185,7 +183,7 @@ function Logging({ history }) {
   };
 
   const login_guest = async (form) => {
-    const { data } = await getAll(url);
+    const { data } = await getAll("/Users");
     let found = data.find(function (element) {
       return element.username === "onlineguest";
     });
