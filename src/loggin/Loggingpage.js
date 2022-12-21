@@ -162,7 +162,9 @@ function Logging({ history }) {
         );
     }
   };
-  const switchForm = (form) => {
+  const switchForm = async(form) => {
+    console.log('d');
+    const { data: data2 } = await getAll("/Members");
     if (form == "register") {
       if (window.innerWidth > 800) {
         setformContainer(`50%`);
@@ -183,7 +185,9 @@ function Logging({ history }) {
   };
 
   const login_guest = async (form) => {
+    console.log('hi');
     const { data } = await getAll("/Users");
+    console.log('bye');
     let found = data.find(function (element) {
       return element.username === "onlineguest";
     });

@@ -32,7 +32,9 @@ function MoviesPage(props) {
     let counter = 0;
     const checkdisplay = async () => {
       if (props.moviedisplay.length > 0) {
+        console.log('hi');
         const { data } = await getAll("/Movies");
+        console.log('hibye');
         const filtered = data.find((meb) => meb.name === props.moviedisplay);
         imgclick(filtered);
         counter = 1;
