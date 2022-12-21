@@ -1,0 +1,146 @@
+@media (min-width: 800px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #292933;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 90px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(187, 186, 186);
+  }
+
+  .menu {
+    width: 95%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo_cont {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    width: 300px;
+  }
+  .logo {
+    width: 260px;
+    font-family: bungee_shade_regular;
+    font-size: 32px;
+    margin-right: 0;
+    cursor: pointer;
+    left: auto;
+    text-align: left;
+  }
+  a {
+    font-size: large;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.4em;
+    display: inline-block;
+    padding: 15px 1px;
+    position: relative;
+  }
+  .ul {
+    list-style: none;
+    display: inline-block;
+    justify-content: space-between;
+    margin: 0 20px;
+    border: 0;
+    color: rgb(184, 183, 183);
+    background-color: #292933;
+  }
+  .ul:hover {
+    color: rgb(255, 255, 255);
+  }
+  a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 4px;
+    left: 0%;
+    position: absolute;
+    background: rgb(212, 0, 0);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  a:hover:after {
+    width: 100%;
+    left: 0;
+  }
+  .logo_cont {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .menu {
+    margin: auto;
+    padding: 15px 0;
+  }
+  .logo_cont {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 16px;
+  }
+  .logo {
+    font-family: bungee_shade_regular;
+    font-size: 24px;
+    cursor: pointer;
+
+    height: 50px;
+  }
+  #nav {
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+  }
+  a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.4em;
+    padding: 8px 2px;
+    padding-top: 0;
+    position: relative;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+
+  .ul {
+    list-style: none;
+    display: inline-block;
+    justify-content: space-between;
+    margin: 0 2px;
+    border: 0;
+    padding: 1px 0px;
+    color: rgb(255, 194, 120);
+    background-color: transparent;
+    border-radius: 5px;
+  }
+  a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 4px;
+    left: 0%;
+    position: absolute;
+    background: rgb(212, 0, 0);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  a:hover:after {
+    width: 100%;
+    left: 0;
+  }
+}

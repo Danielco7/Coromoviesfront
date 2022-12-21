@@ -1,0 +1,100 @@
+@font-face {
+  font-family: bungee_shade_regular;
+  src: URL("../src/css/bungee.shade-regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Castoro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("");
+}
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  padding: 0;
+  margin: 0;
+}
+body,
+button,
+input {
+  font: 1em Hind, sans-serif;
+  line-height: 1.5em;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  margin-bottom: 0;
+  padding: 0px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #292933;
+  cursor: context-menu;
+}
+
+.App {
+  text-align: center;
+  color: white;
+  background-color: #292933;
+}
+
+.MainPage {
+  padding-bottom: 30px;
+}
+
+/* ? */
+#buttons {
+  display: flex;
+  justify-content: flex-end;
+  background-color: grey;
+  background-color: red;
+} /* ? */
+
+.infomessge {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.153);
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  z-index: 2;
+  font-size: 10px;
+}
+/* .info1{ 
+  font-size: 30px;
+  margin-top: 35px;
+  margin-left: -15px;
+  z-index: 3;
+  cursor: pointer;
+  display: inline-block;
+  padding-bottom: 5px;
+} */
+
+@media screen and (min-height: 800px) {
+  .info1 {
+    font-size: 30px;
+    margin-top: 65px;
+    z-index: 4;
+    cursor: pointer;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+}
+@media screen and (max-height: 800px) {
+  ul {
+    margin-top: 40px;
+  }
+  .info1 {
+    font-size: 30px;
+    margin-top: 35px;
+    margin-left: -15px;
+    z-index: 4;
+    cursor: pointer;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+}

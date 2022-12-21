@@ -1,0 +1,1211 @@
+@media screen and (min-width: 820px) {
+  .container {
+    margin: auto;
+    position: relative;
+    height: 443px;
+    margin: auto;
+  }
+
+  #imgbackground {
+    margin: auto;
+    width: 1015px;
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.438) 0px 1px 6px 1px;
+    background-image: url(../imgs/movies_img_background.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .btnn {
+    margin-left: 50px;
+  }
+  #users_imgbackground {
+    margin: auto;
+    width: 845px;
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.438) 0px 1px 6px 1px;
+    background-image: url(../imgs/workers.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .search > div > input:focus,
+  .search > div > input:not(:placeholder-shown) {
+    width: 250px;
+  }
+  .movies {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 470px;
+    min-height: 470px;
+    max-width: 450px;
+    width: 100%;
+    height: 100%;
+    background-color: #32323b;
+    border-radius: 15px;
+    transition: 0.5s;
+    color: rgba(255, 255, 255, 0);
+    opacity: 0.7;
+    overflow: hidden;
+  }
+  .header {
+    padding-top: 4px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 21px;
+    text-align: left;
+    padding-left: 20px;
+    height: 64px;
+  }
+  .imgcont {
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: red;
+  }
+  .imges {
+    width: 100%;
+    height: 300px;
+    background-color: #292933;
+    opacity: 1;
+  }
+  .imges:hover {
+    opacity: 1;
+  }
+  .movies:hover {
+    opacity: 1;
+    color: rgba(255, 255, 255, 1);
+  }
+  .search {
+    margin: 20px;
+    margin-right: 170px;
+    margin-left: auto;
+  }
+
+  .Memebrs {
+    position: relative;
+    text-align: left;
+    padding: 12px 12px;
+    width: 270px;
+    height: 400px;
+    background-color: #363639;
+    border-radius: 15px;
+    transition: 0.5s;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .AddMovieInput,
+  .EditMovieInput {
+    background-color: #555;
+    color: #fdfdff;
+    border: #3f3d56 1px solid;
+    border-radius: 10px;
+    font-size: 20px;
+    height: 29px;
+    margin-top: 5px;
+    width: 260px;
+    padding: 5px 6px;
+  }
+
+  .AddSubsInput {
+    background-color: #555;
+    color: #fdfdff;
+    border: #3f3d56 1px solid;
+    border-radius: 10px;
+    font-size: 18px;
+    height: 29px;
+    margin-top: 5px;
+    width: 180px;
+  }
+  .moviebuttons {
+    background-color: #555;
+    border: #3f3d56 2px solid;
+    color: white;
+    font-size: 16px;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .movie_edit_info {
+    margin-right: 12%;
+    margin-left: auto;
+    margin-top: 40px;
+    font-size: 18px;
+    width: 500px;
+    text-align: left;
+  }
+  .edit_img_cont {
+    height: 220px;
+    margin-left: 10%;
+    margin-top: 40px;
+  }
+  .edit_img {
+    height: 300px;
+  }
+  .EditMovie {
+    background-color: #292933;
+    display: flex;
+  }
+  .svg_add_movie {
+    width: 300px;
+    position: absolute;
+    top: -140px;
+    right: 38px;
+  }
+  #member_svg {
+    width: 300px;
+    top: -202px;
+    right: 128px;
+  }
+
+  .AddMovie,
+  .EditMovie {
+    background-color: #13131c;
+    width: 50%;
+    min-height: 340px;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    border: #3f3d56 2px solid;
+    font-size: 1.5em;
+    margin: auto;
+    margin-top: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    visibility: hidden;
+    position: relative;
+    opacity: 0;
+    animation-name: example;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+  #AddMember {
+    border: #3f3d56 2px solid;
+    animation-name: example2;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+  #AddUser {
+    margin-top: 0px;
+    animation-name: example3;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes example {
+    from {
+      visibility: hidden;
+      opacity: 0;
+      margin-top: 100px;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+      margin-top: 200px;
+    }
+  }
+  @keyframes example2 {
+    from {
+      visibility: hidden;
+      opacity: 0;
+      margin-top: 100px;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+      margin-top: 260px;
+    }
+  }
+  @keyframes example3 {
+    from {
+      visibility: hidden;
+      opacity: 0;
+      margin-top: 0px;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+      margin-top: 170px;
+    }
+  }
+
+  .add_movie_continer {
+    position: absolute;
+    top: 0;
+    left: -20px;
+    background-color: #ff00003a;
+    width: 103%;
+    height: 20%;
+    backdrop-filter: blur(3px);
+  }
+  .AddMovieInput_cont {
+    margin: auto;
+    display: flex;
+    width: 550px;
+    justify-content: space-between;
+    font-size: 26px;
+  }
+
+  .add_info_headers {
+    text-align: left;
+    width: 170px;
+  }
+  #Permissions {
+    justify-content: space-around;
+    width: 270px;
+  }
+  .permission_inputs {
+    width: 20px;
+    margin-top: 5px;
+  }
+  .moviepage {
+    min-height: 900px;
+  }
+
+  @keyframes hide_left1 {
+    from {
+      visibility: visible;
+      position: absolute;
+      opacity: 1;
+      margin: auto;
+      margin-left: 25.5vw;
+      margin-top: 170px;
+    }
+    to {
+      visibility: hidden;
+      position: absolute;
+      opacity: 0;
+      margin: auto;
+      margin-left: -80vw;
+      margin-top: 170px;
+    }
+  }
+  @keyframes active_left1 {
+    from {
+      visibility: hidden;
+      position: absolute;
+      opacity: 0;
+      margin: auto;
+      margin-left: 120vw;
+      margin-top: 170px;
+    }
+    to {
+      visibility: visible;
+      position: relative;
+      opacity: 1;
+      margin: auto;
+      margin-left: 25.5vw;
+      margin-top: 170px;
+    }
+  }
+
+  @keyframes active_right1 {
+    from {
+      visibility: hidden;
+      position: absolute;
+      opacity: 0;
+      margin: auto;
+      margin-left: -80vw;
+      margin-top: 170px;
+    }
+    to {
+      visibility: visible;
+      position: absolute;
+      opacity: 1;
+      margin: auto;
+      margin-left: 25.5vw;
+      margin-top: 170px;
+    }
+  }
+  @keyframes hide_right1 {
+    from {
+      visibility: visible;
+      position: relative;
+      opacity: 1;
+      margin: auto;
+      margin-left: 25.5vw;
+      margin-top: 170px;
+    }
+    to {
+      visibility: hidden;
+      position: absolute;
+      opacity: 0;
+      margin: auto;
+      margin-left: 120vw;
+      margin-top: 170px;
+    }
+  }
+  #AddUser2 {
+    visibility: hidden;
+    margin: auto;
+    margin-right: -10vw;
+    background-color: #0f0f11;
+    width: 50%;
+    min-height: 440px;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    border: #3f3d56 2px solid;
+    font-size: 1.5em;
+    margin: auto;
+    top: 0;
+    padding-bottom: 40px;
+    position: absolute;
+  }
+
+  #display_svg {
+    width: 275px;
+    top: -187px;
+    left: 315px;
+  }
+  #movieshowercont {
+    min-height: 440px;
+    border: #3f3d56 2px solid;
+    animation-name: example2;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+  .search1 {
+    width: 550px;
+    margin: auto;
+    padding-bottom: 20px;
+  }
+  .search1 input {
+    border: 0;
+    border-radius: 2px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    height: 30px;
+    width: 250px;
+    background-color: #555;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 6px;
+  }
+  .dataResult {
+    height: 400px;
+    overflow-y: scroll;
+  }
+  .dataResult .dataItem {
+    margin: auto;
+    width: 100%;
+    height: 52px;
+    padding-right: 6px;
+    margin-top: 6px;
+    border: #3f3d56 2px solid;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: #0d0d0d;
+  }
+  .EditMovie2 {
+    background-color: #13131c;
+    width: 50%;
+    min-height: 340px;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    border: #3f3d56 2px solid;
+    font-size: 1.5em;
+    margin: auto;
+    margin-top: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    display: flex;
+  }
+}
+
+.container h1 {
+  position: absolute;
+  width: 100%;
+  top: 0%;
+}
+.flexbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 82%;
+  left: 33%;
+  justify-content: left;
+  align-items: top;
+}
+.container .btnn {
+  position: absolute;
+  top: 84%;
+  left: 18%;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1;
+}
+
+.container .btnn:hover {
+  background-color: black;
+}
+
+.search > div {
+  display: inline-block;
+  position: relative;
+  filter: drop-shadow(0 1px #ff0000);
+}
+
+.search > div:after {
+  content: "";
+  background: rgb(255, 0, 0);
+  width: 4px;
+  height: 13px;
+  position: absolute;
+  top: 20px;
+  right: -2px;
+  transform: rotate(135deg);
+}
+
+.search > div > input {
+  color: rgb(255, 0, 0);
+  font-size: 16px;
+  background: transparent;
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+  border: solid 2px rgb(255, 0, 0);
+  outline: none;
+  border-radius: 35px;
+  transition: width 0.5s;
+  cursor: pointer;
+  padding: 5px 6px;
+}
+
+.search > div > input::placeholder {
+  color: #ff0000;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.search > div > input:focus::placeholder {
+  opacity: 1;
+}
+
+.innerswiper {
+  padding: 15px;
+}
+#slider123 {
+  margin: left;
+  text-align: center;
+}
+
+.subbutton {
+  border: #fdfdff 2px solid;
+  color: azure;
+  display: inline;
+}
+.subbutton:hover {
+  cursor: pointer;
+  color: aqua;
+  border: aqua 4px solid;
+}
+.moviecontainer {
+  display: flex;
+  justify-content: space-around;
+  justify-content: lerft;
+  min-width: 100%;
+}
+
+.moviebuttons:hover {
+  background-color: black;
+}
+
+.undo:hover > svg > path {
+  fill: rgb(0, 255, 255);
+}
+
+.AddMovieInput:focus,
+.EditMovieInput:focus {
+  background-color: rgb(59, 59, 59);
+}
+.AddMoviecontainer,
+.EditMoviecontainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+.AddMovieButtons:hover,
+.EditMovieButtons:hover {
+  background-color: rgb(59, 59, 59);
+}
+
+.AddMovieButtons,
+.EditMovieButtons {
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.MemebrsContainer {
+  margin: auto;
+}
+
+.clearable__clear {
+  cursor: pointer;
+}
+.subslist {
+  max-height: 50px;
+  overflow-y: auto;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  width: 101%;
+  margin-left: -6px;
+}
+.ilsubs {
+  border-bottom: white 1px solid;
+  width: 93%;
+  /* border: aqua 4px solid; */
+}
+
+.subslist::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.subslist::-webkit-scrollbar-track {
+  background-color: rgb(115, 108, 108);
+  border-radius: 70px;
+}
+.subslist::-webkit-scrollbar-thumb {
+  background-color: rgb(43, 43, 43, 0.884);
+  border-radius: 90px;
+}
+.dataResult ::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.dataResult ::-webkit-scrollbar-track {
+  background-color: rgb(115, 108, 108);
+  border-radius: 70px;
+}
+.dataResult ::-webkit-scrollbar-thumb {
+  background-color: rgb(43, 43, 43, 0.884);
+  border-radius: 90px;
+}
+.movie_premired {
+  color: rgb(124, 122, 122);
+}
+.movie_geners {
+  color: rgb(124, 122, 122);
+  text-align: center;
+}
+.membersbuttons {
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 4px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: #3f3d56 2px solid;
+}
+.membersbuttons:hover {
+  background-color: black;
+}
+
+.movielist {
+  color: #eb0000;
+}
+.movielist:hover {
+  color: #8cdef5;
+}
+
+.users_name {
+  height: 30px;
+  overflow: hidden;
+}
+
+.mobile_map_display div {
+  display: inline-block;
+}
+@media screen and (min-width: 540px) {
+  .mobile_map_display {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 0.5rem;
+    -moz-column-gap: 0.5rem;
+    column-gap: 0.5rem;
+    margin: 0 auto;
+  }
+  .undo {
+    position: absolute;
+    left: 150px;
+    top: 20px;
+    cursor: pointer;
+    display: inline;
+    margin-bottom: -50px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .mobile_map_display {
+    -webkit-column-gap: 0.5rem;
+    -moz-column-gap: 0.5rem;
+    column-gap: 0.5rem;
+    margin: 0 auto;
+  }
+
+  .undo {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    cursor: pointer;
+    display: inline;
+    margin-bottom: -50px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .container {
+    margin: auto;
+    position: relative;
+    height: 310px;
+    margin: auto;
+  }
+
+  #imgbackground {
+    margin: auto;
+    width: 315px;
+    max-width: 100%;
+    height: 320px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.438) 0px 1px 6px 1px;
+    background-image: url(../imgs/peakpx.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+  }
+  #users_imgbackground {
+    margin: auto;
+    width: 515px;
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.438) 0px 1px 6px 1px;
+    background-image: url(../imgs/workers2.jpg);
+    position: relative;
+    background-position: center;
+  }
+  .search > div > input:focus,
+  .search > div > input:not(:placeholder-shown) {
+    width: 100px;
+  }
+
+  .movies {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    background-color: #32323b;
+    border-radius: 15px;
+    transition: 0.5s;
+    color: rgba(255, 255, 255, 0);
+    opacity: 1;
+    overflow: hidden;
+  }
+  .header {
+    padding-top: 7px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 57px;
+  }
+  #titlee {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+  }
+  .imgcont {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .imges {
+    width: 150px;
+    height: 200px;
+    background-color: #292933;
+    opacity: 1;
+  }
+  .imges:hover {
+    opacity: 1;
+  }
+  .movies:hover {
+    opacity: 1;
+    color: rgba(255, 255, 255, 1);
+  }
+  .search {
+    margin: 20px;
+    margin-right: 50px;
+    margin-left: auto;
+  }
+  .Memebrs {
+    position: relative;
+    text-align: left;
+    padding: 12px 12px;
+    width: 270px;
+    height: 50px;
+    background-color: #363639;
+    border-radius: 15px;
+    transition: 0.5s;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow-y: hidden;
+    -webkit-transition: height 0.35s ease-in-out;
+  }
+  .Memebrs:hover {
+    position: relative;
+    width: 270px;
+    height: 370px;
+    background-color: #25252b;
+    border-radius: 15px;
+    transition: 0.5s;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow-y: hidden;
+  }
+  .moviebuttons {
+    background-color: #555;
+    border: #3f3d56 2px solid;
+    color: white;
+    font-size: 16px;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .AddMovieButtons,
+  .EditMovieButtons {
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    border: #3f3d56 1px solid;
+  }
+  .AddMovieInput,
+  .EditMovieInput {
+    background-color: #555;
+    color: #fdfdff;
+    border: #3f3d56 1px solid;
+    border-radius: 10px;
+    font-size: 18px;
+    height: 27px;
+    margin-top: 7px;
+    width: 166px;
+    padding: 1px 6px;
+  }
+  .AddSubsInput {
+    background-color: #555;
+    color: #fdfdff;
+    border: #3f3d56 1px solid;
+    border-radius: 10px;
+    font-size: 18px;
+    height: 27px;
+    margin-top: 7px;
+    width: 166px;
+    padding: 1px 6px;
+  }
+  .edit_img_cont {
+    height: 170px;
+  }
+  .edit_img {
+    height: 170px;
+  }
+
+  .svg_add_movie {
+    width: 175px;
+    position: absolute;
+    top: -82px;
+    right: 48px;
+  }
+  #member_svg {
+    width: 235px;
+    top: -158px;
+    right: 45px;
+  }
+
+  .add_movie_continer {
+    position: absolute;
+    top: 0;
+    left: -20px;
+    background-color: #221e1e7a;
+    width: 107%;
+    height: 104%;
+    backdrop-filter: blur(3px);
+  }
+
+  .AddMovie,
+  .EditMovie {
+    background-color: #13131c;
+    width: 92%;
+    min-height: 340px;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    border: #3f3d56 2px solid;
+    font-size: 1.5em;
+    margin: auto;
+    margin-right: 0px;
+    margin-left: 25px;
+    margin-top: 50px;
+    padding-top: 45px;
+    padding-bottom: 40px;
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 3;
+    animation-name: example;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+  #AddMember {
+    margin-top: 150px;
+    border: #3f3d56 2px solid;
+    animation-name: example2;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+
+  .AddMovieInput_cont {
+    margin: auto;
+    display: flex;
+    width: 290px;
+    justify-content: space-between;
+  }
+  #Permissions {
+    justify-content: space-around;
+    width: 240px;
+  }
+  .permission_inputs {
+    width: 20px;
+    margin-top: 5px;
+  }
+  .add_info_headers {
+    text-align: left;
+    width: 120px;
+  }
+
+  @keyframes example {
+    from {
+      visibility: hidden;
+      opacity: 0;
+      margin-top: 50px;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+      margin-top: 110px;
+    }
+  }
+  @keyframes example2 {
+    from {
+      visibility: hidden;
+      opacity: 0;
+      margin-top: 150px;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+      margin-top: 210px;
+    }
+  }
+  .moviepage {
+    min-height: 700px;
+  }
+
+  .membersbuttons1 {
+    margin: auto;
+    margin-right: 20px;
+  }
+  .membersbuttons2 {
+    margin: auto;
+    margin-left: 20px;
+  }
+  #AddUser {
+    margin-top: 0px;
+    animation-name: example3;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes example3 {
+    from {
+      visibility: hidden;
+      opacity: 0;
+      margin-top: 0px;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+      margin-top: 130px;
+    }
+  }
+  @keyframes hide_left1 {
+    from {
+      visibility: visible;
+      position: absolute;
+      opacity: 1;
+      margin: auto;
+      margin-left: 7vw;
+      margin-top: 130px;
+    }
+    to {
+      visibility: hidden;
+      position: absolute;
+      opacity: 0;
+      margin: auto;
+      margin-left: -150vw;
+      margin-top: 130px;
+    }
+  }
+  @keyframes active_left1 {
+    from {
+      visibility: hidden;
+      position: absolute;
+      opacity: 0;
+      margin: auto;
+      margin-left: 180vw;
+      margin-top: 130px;
+    }
+    to {
+      visibility: visible;
+      position: relative;
+      opacity: 1;
+      margin: auto;
+      margin-left: 7.5vw;
+      margin-top: 130px;
+    }
+  }
+  @keyframes active_right1 {
+    from {
+      visibility: hidden;
+      position: absolute;
+      opacity: 0;
+      margin: auto;
+      margin-left: -150vw;
+      margin-top: 130px;
+    }
+    to {
+      visibility: visible;
+      position: relative;
+      opacity: 1;
+      margin: auto;
+      margin-left: 7.5vw;
+      margin-top: 130px;
+    }
+  }
+  @keyframes hide_right1 {
+    from {
+      visibility: visible;
+      position: relative;
+      opacity: 1;
+      margin: auto;
+      margin-left: 7vw;
+      margin-top: 130px;
+    }
+    to {
+      visibility: hidden;
+      position: absolute;
+      opacity: 0;
+      margin: auto;
+      margin-left: 180vw;
+      margin-top: 130px;
+    }
+  }
+  #AddUser2 {
+    visibility: hidden;
+    margin: auto;
+    background-color: #0f0f11;
+    width: 92%;
+    min-height: 340px;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    border: #3f3d56 2px solid;
+    font-size: 1.5em;
+    margin: auto;
+    margin-right: 22px;
+    top: 0;
+    padding-bottom: 40px;
+    padding-top: 45px;
+    padding-left: 8px;
+    position: absolute;
+  }
+
+  #display_svg {
+    width: 220px;
+    right: 35px;
+    top: -149px;
+  }
+  #movieshowercont {
+    min-height: 440px;
+    border: #3f3d56 2px solid;
+    padding-bottom: 17px;
+  }
+  #movieshowercont_img {
+    margin-top: -20px;
+  }
+  .movie_edit_info {
+    font-size: 14px;
+    text-align: left;
+    padding: 0 8px;
+  }
+  .ilsubs {
+    border-bottom: white 1px solid;
+    width: 93%;
+    text-align: left;
+    font-size: 17px;
+    max-height: 30px;
+    overflow: hidden;
+  }
+
+  .search1 {
+    width: 99%;
+    margin: auto;
+    padding-bottom: 20px;
+  }
+  .search1 input {
+    border: 0;
+    border-radius: 2px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    height: 30px;
+    width: 250px;
+    background-color: #555;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 6px;
+  }
+  .dataResult {
+    height: 300px;
+    overflow-y: scroll;
+  }
+  .dataResult .dataItem {
+    margin: auto;
+    width: 100%;
+    height: 35px;
+    font-size: 18px;
+    padding-right: 6px;
+    margin-top: 6px;
+    border: #3f3d56 2px solid;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: #0d0d0d;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .subslist2 {
+    max-height: 130px;
+    overflow-y: auto;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    width: 101%;
+    margin-left: -6px;
+    font-size: 15px;
+  }
+  .ilsubs {
+    border-bottom: white 1px solid;
+    width: 93%;
+    /* border: aqua 4px solid; */
+  }
+
+  .subslist2::-webkit-scrollbar {
+    width: 0.5em;
+  }
+
+  .subslist2::-webkit-scrollbar-track {
+    background-color: rgb(115, 108, 108);
+    border-radius: 70px;
+  }
+  .subslist2::-webkit-scrollbar-thumb {
+    background-color: rgb(43, 43, 43, 0.884);
+    border-radius: 90px;
+  }
+}
+
+.btnn_allmovies {
+  position: absolute;
+  top: -50px;
+  left: 450px;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 2;
+}
+
+.AddMovieButtons,
+.EditMovieButtons {
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 4px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: #3f3d56 2px solid;
+}
+
+input:focus {
+  outline: none;
+}
+
+.dataItem p {
+  width: 100%;
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.dataItem:hover {
+  background-color: #474747;
+}
+.dataItem:hover p {
+  width: 100%;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 10px;
+}
