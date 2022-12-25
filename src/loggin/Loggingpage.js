@@ -186,7 +186,7 @@ function Logging({ history }) {
 
   const login_guest = async (form) => {
     console.log('hi');
-    const { data } = await getAll("/Users");
+    const { data } = await getAll();
     console.log('bye');
     let found = data.find(function (element) {
       return element.username === "onlineguest";
