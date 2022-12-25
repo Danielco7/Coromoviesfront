@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-const allurl = 'http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api'
+const allurl = 'http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Users'
 
 const getAll = (url) => Axios.get(`${allurl}${url}`);
 
