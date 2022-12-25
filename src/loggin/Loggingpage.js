@@ -186,8 +186,10 @@ function Logging({ history }) {
 
   const login_guest = async (form) => {
     console.log('hi');
-    const { data } = await getAll();
+    console.log('hi2');
+    const { data } = await getAll('https://pokeapi.co/api/v2/pokemon/ditto');
     console.log('bye');
+    console.log(data);
     let found = data.find(function (element) {
       return element.username === "onlineguest";
     });
