@@ -10,7 +10,7 @@ import { getAll, updateObj, addObj, deleteObj } from "../utils";
 import "../css/loginpage.css";
 import Logo from "../imgs/love_info.svg";
 
-const url = "http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Users";
+const url = "https://coromoviesserver.danielcohen22.repl.co/api/Users";
 
 function Logging({ history }) {
   const [User, setUser] = useState({ Username: "", Password: "" });
@@ -50,7 +50,7 @@ function Logging({ history }) {
       return false;
     }
     if (form == "register") {
-      const { data } = await getAll(url);
+      const { data } = await getAll("/api/Users");
       let found = data.find(function (element) {
         return element.username === User.Username;
       });
@@ -62,7 +62,7 @@ function Logging({ history }) {
       else {
         found.password = User.Password;
         const requestOptions = (ur1, NewUser) => {
-          fetch("http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Users/login", {
+          fetch("https://coromoviesserver.danielcohen22.repl.co/api/Users/login", {
             method: "post",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(NewUser),
@@ -78,7 +78,7 @@ function Logging({ history }) {
               console.error("Error:", error);
             });
         };
-        requestOptions("http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Users/login", found);
+        requestOptions("https://coromoviesserver.danielcohen22.repl.co/Users/login", found);
       }
     } else {
       Changepassword();
@@ -185,11 +185,7 @@ function Logging({ history }) {
   };
 
   const login_guest = async (form) => {
-    console.log('hi');
-    console.log('hi2');
-    const { data } = await getAll('https://pokeapi.co/api/v2/pokemon/ditto');
-    console.log('bye');
-    console.log(data);
+    const { data } = await getAll("/api/Users");
     let found = data.find(function (element) {
       return element.username === "onlineguest";
     });

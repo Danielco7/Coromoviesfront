@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-const allurl = 'http://ec2-54-209-155-37.compute-1.amazonaws.com:3001/api/Users'
+const allurl = 'https://coromoviesserver.danielcohen22.repl.co'
 
 const getAll = (url) => Axios.get(url);
 
