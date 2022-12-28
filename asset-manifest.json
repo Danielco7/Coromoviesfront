@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Coromoviesfront/static/css/main.c9c39e67.css",
-    "main.js": "/Coromoviesfront/static/js/main.f8391f42.js",
+    "main.js": "/Coromoviesfront/static/js/main.b3eb61c4.js",
     "static/js/787.c4e7f8f9.chunk.js": "/Coromoviesfront/static/js/787.c4e7f8f9.chunk.js",
     "static/media/movies_img_background.png": "/Coromoviesfront/static/media/movies_img_background.09e26b4b3c32f79da155.png",
     "static/media/signup.jpg": "/Coromoviesfront/static/media/signup.7252a87851879bfebe55.jpg",
@@ -19,11 +19,11 @@
     "static/media/add_member.svg": "/Coromoviesfront/static/media/add_member.016f82e05fbb736ca9ca682b624afdc9.svg",
     "index.html": "/Coromoviesfront/index.html",
     "main.c9c39e67.css.map": "/Coromoviesfront/static/css/main.c9c39e67.css.map",
-    "main.f8391f42.js.map": "/Coromoviesfront/static/js/main.f8391f42.js.map",
+    "main.b3eb61c4.js.map": "/Coromoviesfront/static/js/main.b3eb61c4.js.map",
     "787.c4e7f8f9.chunk.js.map": "/Coromoviesfront/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c9c39e67.css",
-    "static/js/main.f8391f42.js"
+    "static/js/main.b3eb61c4.js"
   ]
 }
