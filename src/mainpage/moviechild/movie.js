@@ -56,9 +56,7 @@ function Movie(props) {
           <button
             className="moviebuttons"
             onClick={() => {
-              if (window.confirm("Delete this movie?")) {
                 Delete();
-              }
             }}
           >
             delete
@@ -67,9 +65,7 @@ function Movie(props) {
           <button
             className="moviebuttons"
             onClick={() => {
-              if (window.confirm("Delete this movie?")) {
                 Delete();
-              }
             }}
           >
             delete

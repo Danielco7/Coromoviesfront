@@ -3,12 +3,11 @@ import { getAll, addObj, updateObj, deleteObj } from "../../utils";
 import User from "./user";
 import EditUser from "./edituser";
 import AddUser from "./adduser";
-import users from "../../imgs/workers.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 
+import swal from "sweetalert";
 
 function UsersPage(props) {
   const [Users, setusers] = useState({});
@@ -55,53 +54,79 @@ function UsersPage(props) {
     await setcheckusers(false);
   }
   async function Update(e) {
-    let key = {}
+    let key = {};
     key = localStorage.getItem("token");
-    try { const { data2 } = await updateObj("/Users", e._id, e,key);
-    const { data } = await getAll("/Users");
-    data.splice(0, 2);
-    await setusers(data);
-    await setcheckusers(false);
-    await setcheckusers(true);
-  }catch(error){
-    alert(error)
-    await setcheckusers(true);
-    await setchecknewuser(false);
-    await setcheckedit(false);
+    try {
+      const { data2 } = await updateObj("/Users", e._id, e, key);
+      const { data } = await getAll("/Users");
+      await swal("Users updated", `${e.fname} has beem updated`, "success");
+      data.splice(0, 2);
+      await setusers(data);
+      await setcheckusers(false);
+      await setcheckusers(true);
+    } catch (error) {
+      await swal("Oops...", error, "error");
+      await setcheckusers(true);
+      await setchecknewuser(false);
+      await setcheckedit(false);
+    }
   }
-}
   async function Add(e) {
-    let key = {}
+    let key = {};
     key = localStorage.getItem("token");
     try {
       const { data2 } = await addObj("/Users", e, key);
       const { data } = await getAll("/Users");
+      await swal(
+        "Userlist has been updated",
+        `${e.fname} has added to the list `,
+        "success"
+      );
       data.splice(0, 2);
       await setusers(data);
       await setcheckusers(true);
       await setchecknewuser(false);
       await setcheckedit(false);
     } catch (error) {
-      alert(error)
-    await setcheckusers(true);
-    await setchecknewuser(false);
-    await setcheckedit(false);
+      await swal("Oops...", error, "error");
+      await setcheckusers(true);
+      await setchecknewuser(false);
+      await setcheckedit(false);
     }
   }
   async function Delete(e) {
     if (Users.length > 5) {
-      let key = {}
+      let key = {};
       key = localStorage.getItem("token");
-      try {
-        const { data2 } = await deleteObj("/Users", e._id,key);
-        const { data } = await getAll("/Users");
-        data.splice(0, 2);
-        await setusers(data);
-      } catch (error) {
-        alert(error)
-      }
+      await swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this User",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then(async (willDelete) => {
+        if (willDelete) {
+          try {
+            const { data2 } = await deleteObj("/Users", e._id, key);
+            const { data } = await getAll("/Users");
+            await swal(
+              "User deleted",
+              `${e.name} has beem removed form the list`,
+              "success"
+            );
+            data.splice(0, 2);
+            await setusers(data);
+          } catch (error) {
+            await swal("Oops...", error, "error");
+          }
+        }
+      });
     } else {
-      alert("the number of users is less then allowed");
+      await swal(
+        "Oops...",
+        "the number of users is less then allowed",
+        "error"
+      );
     }
   }
 

@@ -8,9 +8,8 @@ import Movie from "./movie";
 import AddMovie from "./addmovie";
 import EditMovie from "./editmovie";
 import ShowMovie from "./Movieshower";
-import Logo from "../../imgs/love_info.svg";
-import Info_messge from "../info_messge";
 
+import swal from "sweetalert";
 
 SwiperCore.use([Navigation, Pagination]);
 function MoviesPage(props) {
@@ -23,25 +22,22 @@ function MoviesPage(props) {
   const [DisplayEditMoviePage, setDisplayEditMoviePage] = useState(false);
   const [Check_Create_Movie_Permission, setCheck_Create_Movie_Permission] =
     useState("");
-  const { x, y } = useWindowScroll();
-  const [scrolled, setScrolled] = useState(0);
-  const moviesection = useRef(null);
-
-
   useEffect(() => {
     let counter = 0;
     const checkdisplay = async () => {
       if (props.moviedisplay.length > 0) {
-        console.log('hi');
+        console.log("hi");
         const { data } = await getAll("/Movies");
-        console.log('hibye');
+
         const filtered = data.find((meb) => meb.name === props.moviedisplay);
         imgclick(filtered);
         counter = 1;
       }
     };
     const getmovies = async () => {
+      console.log("hibye1");
       const { data } = await getAll("/Movies");
+      console.log("hibye2");
       setMovies(data);
       setBackUpMoviesArry(data);
       if (counter === 0) {
@@ -92,29 +88,50 @@ function MoviesPage(props) {
       try {
         const { data2 } = await addObj("/Movies", e, key);
         const { data } = await getAll("/Movies");
+        swal(
+          "Movielist has been updated",
+          `${e.name} has added to the list `,
+          "success"
+        );
+
         setMovies(data);
         setBackUpMoviesArry(data);
       } catch (error) {
-        alert(error);
+        swal("Oops...", error, "error");
       }
     } else {
-      alert("This movie is allready in the collection");
+      swal("Oops...", "This movie is allready in the collection", "error");
     }
   };
   const Delete = async (e) => {
     if (BackUpMoviesArry.length > 7) {
       let key = {};
       key = localStorage.getItem("token");
-      try {
-        const { data: data1 } = await deleteObj("/Movies", e._id, key);
-        const { data } = await getAll("/Movies");
-        setMovies(data);
-        setBackUpMoviesArry(data);
-      } catch (error) {
-        alert(error);
-      }
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this Movie",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then(async (willDelete) => {
+        if (willDelete) {
+          try {
+            const { data: data1 } = await deleteObj("/Movies", e._id, key);
+            const { data } = await getAll("/Movies");
+            swal(
+              "Movie deleted",
+              `${e.name} has beem removed form the list`,
+              "success"
+            );
+            setMovies(data);
+            setBackUpMoviesArry(data);
+          } catch (error) {
+            swal("Oops...", error, "error");
+          }
+        }
+      });
     } else {
-      alert("the number of movies is less then allowed ");
+      swal("Oops...", "the number of movies is less then allowed", "error");
     }
   };
   const Serch = async (e) => {
@@ -144,12 +161,13 @@ function MoviesPage(props) {
     try {
       const { data2 } = await updateObj("/Movies", e._id, e, key);
       const { data } = await getAll("/Movies");
+      swal("Movie updated", `${e.name} has beem updated`, "success");
       setMovies(data);
       setDisplayAllMovies(true);
       setDisplayAddMoviePage(false);
       setDisplayEditMoviePage(false);
     } catch (error) {
-      alert(error);
+      swal("Oops...", error, "error");
       setDisplayAllMovies(true);
       setDisplayAddMoviePage(false);
       setDisplayEditMoviePage(false);

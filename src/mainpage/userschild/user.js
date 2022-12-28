@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 function User(props) {
   useEffect(() => {
@@ -24,9 +24,7 @@ function User(props) {
         <button
           className="membersbuttons membersbuttons2"
           onClick={() => {
-            if (window.confirm("Delete this user?")) {
               Delete();
-            }
           }}
         >
           delete

@@ -50,7 +50,7 @@ function Logging({ history }) {
       return false;
     }
     if (form == "register") {
-      const { data } = await getAll("/api/Users");
+      const { data } = await getAll("/Users");
       let found = data.find(function (element) {
         return element.username === User.Username;
       });
@@ -185,7 +185,9 @@ function Logging({ history }) {
   };
 
   const login_guest = async (form) => {
-    const { data } = await getAll("/api/Users");
+    console.log('hii12');
+    const { data } = await getAll("/Users");
+    console.log('bye');
     let found = data.find(function (element) {
       return element.username === "onlineguest";
     });

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getAll, addObj, deleteObj, updateObj } from "../../utils";
+import { getAllapi} from "../../utils";
 // import "./SearchBar.css";
 // import SearchIcon from "@material-ui/icons/Search";
 // import CloseIcon from "@material-ui/icons/Close";
@@ -15,7 +15,9 @@ function SearchBar({ placeholder, data, input }) {
   const Serch = async (e) => {
     const searchWord = e.target.value;
     setWordEntered(searchWord);
-    const { data: data1 } = await getAll(urlsearch + searchWord);
+    console.log('d');
+    const { data: data1 } = await getAllapi(`${urlsearch} ${searchWord}`);
+    console.log('2');
     const moviesarray = data1.results;
     if (searchWord === "") {
       setFilteredData([]);

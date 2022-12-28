@@ -48,7 +48,7 @@ function AddMovie(props) {
     setnameErr(e.title);
     for (let i = 0; i < e.genre_ids.length; i++) {
       const element = e.genre_ids[i];
-      const { data } = await getAll(urgeners);
+      const { data } = await getAllapi(urgeners);
       const found = data.genres.find(({ id }) => id == element);
       setgenresErr((genresErr) => [...genresErr, `${found.name} `]);
     }

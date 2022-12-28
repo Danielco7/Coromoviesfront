@@ -5,10 +5,10 @@ import EditMember from "./editmember";
 import AddMember from "./addmember";
 import members from "../../imgs/istockphoto-1132715308-612x612.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 
+import swal from "sweetalert";
 
 function SubsPage(props) {
   const [Members, setMembers] = useState({});
@@ -63,38 +63,57 @@ function SubsPage(props) {
   const addnewmember = async (e) => {
     setcheckaddmember(false);
     setcheckallmembers(true);
-    let key = {}
+    let key = {};
     key = localStorage.getItem("token");
     try {
       const { data1 } = await addObj("/Members", e, key);
       const { data } = await getAll("/Members");
+      swal(
+        "Memberlist has been updated",
+        `${e.name} has added to the list `,
+        "success"
+      );
       setMembers(data);
-      setBackUpMembersArry(data); 
+      setBackUpMembersArry(data);
     } catch (error) {
-      alert(error)
+      swal("Oops...", error, "error");
     }
   };
 
   const Delete = async (e) => {
     if (BackUpMembersArry.length > 10) {
-      const { data } = await getAll("/Subs");
-      const filtered = data.find((meb) => meb.memberId === e._id);
-      if (filtered != undefined) {
-        const { data: data2 } = await deleteObj("/Subs", filtered._id);
-      }
-      let key = {}
-      key = localStorage.getItem("token");
-      try {
-        const { data: data3 } = await deleteObj("/Members", e._id,key);
-        const { data: data4 } = await getAll("/Members");
-        setMembers(data4);
-        setBackUpMembersArry(data4);
-      } catch (error) {
-        alert(error)
-      }
-
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this Member",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then(async (willDelete) => {
+        if (willDelete) {
+          try {
+            const { data } = await getAll("/Subs");
+            const filtered = data.find((meb) => meb.memberId === e._id);
+            if (filtered != undefined) {
+              const { data: data2 } = await deleteObj("/Subs", filtered._id);
+            }
+            let key = {};
+            key = localStorage.getItem("token");
+            const { data: data3 } = await deleteObj("/Members", e._id, key);
+            const { data: data4 } = await getAll("/Members");
+            swal(
+              "Member deleted",
+              `${e.name} has beem removed form the list`,
+              "success"
+            );
+            setMembers(data4);
+            setBackUpMembersArry(data4);
+          } catch (error) {
+            swal("Oops...", error, "error");
+          }
+        }
+      });
     } else {
-      alert("the number of members is less then allowed");
+      swal("Oops...", "the number of Members is less then allowed", "error");
     }
   };
 
@@ -107,17 +126,18 @@ function SubsPage(props) {
   };
 
   const updatemember = async (e) => {
-    let key = {}
+    let key = {};
     key = localStorage.getItem("token");
     try {
-      const { data: data1 } = await updateObj("/Members", e._id, e,key);
+      const { data: data1 } = await updateObj("/Members", e._id, e, key);
       const { data } = await getAll("/Members");
+      swal("Movie updated", `${e.name} has beem updated`, "success");
       setMembers(data);
       setcheckallmembers(true);
       setcheckaddmember(false);
       setcheckeditmember(false);
     } catch (error) {
-      alert(error)
+      swal("Oops...", error, "error");
       setcheckallmembers(true);
       setcheckaddmember(false);
       setcheckeditmember(false);

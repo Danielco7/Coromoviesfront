@@ -68,7 +68,7 @@ function AddUser(props) {
       return false;
     }
     let user = await props.allusers.find(
-      (element) => element.username == username
+      (element) => element.username === username
     );
     if (user !== undefined) {
       usernameError = "Username is allready taken";
@@ -94,7 +94,7 @@ function AddUser(props) {
       counter -= 1;
       setSubs_Counter(counter);
     }
-    if (counter == 0) {
+    if (counter === 0) {
       setdissubs(false);
       setsubscheck(false);
       const index = array.indexOf("View Subscriptions");
@@ -109,7 +109,7 @@ function AddUser(props) {
       const found = array.find(function (element) {
         return element === "View Subscriptions";
       });
-      if (found == undefined) array.push("View Subscriptions");
+      if (found === undefined) array.push("View Subscriptions");
       setprem(array);
     }
     handleChange(e);
@@ -128,7 +128,7 @@ function AddUser(props) {
       counter = counter - 1;
       setMovie_Counte(counter);
     }
-    if (counter == 0) {
+    if (counter === 0) {
       setdismovie(false);
       setmoviescheck(false);
       const index = array.indexOf("View Movies");
@@ -143,7 +143,7 @@ function AddUser(props) {
       const found = array.find(function (element) {
         return element === "View Movies";
       });
-      if (found == undefined) array.push("View Movies");
+      if (found === undefined) array.push("View Movies");
       setprem(array);
     }
     handleChange(e);

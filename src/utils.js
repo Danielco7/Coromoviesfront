@@ -1,8 +1,8 @@
 import Axios from "axios";
 
-const allurl = 'https://coromoviesserver.danielcohen22.repl.co'
+const allurl = 'https://coromoviesserver.danielcohen22.repl.co/api'
 
-const getAll = (url) => Axios.get(url);
+const getAll = (url) => Axios.get(`${allurl}${url}`);
 
 const getAllapi = (url) => Axios.get(url);
 

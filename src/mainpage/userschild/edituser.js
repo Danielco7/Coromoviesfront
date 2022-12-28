@@ -78,17 +78,17 @@ function EditUser(props) {
     setcheck(true);
     let filteredsubs = user.premissions.filter(
       (elem) =>
-        elem == "Update Subscription" ||
-        elem == "Delete Subscriptions" ||
-        elem == "Create Subscriptions"
+        elem === "Update Subscription" ||
+        elem === "Delete Subscriptions" ||
+        elem === "Create Subscriptions"
     );
     setSubs_Counter(filteredsubs.length);
 
     let filteredmovie = user.premissions.filter(
       (elem) =>
-        elem == "Update Movie" ||
-        elem == "Delete Movies" ||
-        elem == "Create Movies"
+        elem === "Update Movie" ||
+        elem === "Delete Movies" ||
+        elem === "Create Movies"
     );
     setMovie_Counte(filteredmovie.length);
 
@@ -120,7 +120,7 @@ function EditUser(props) {
       counter -= 1;
       setSubs_Counter(counter);
     }
-    if (counter == 0) {
+    if (counter === 0) {
       setdissubs(false);
       setsubscheck(false);
       const index = array.indexOf("View Subscriptions");
@@ -135,7 +135,7 @@ function EditUser(props) {
       const found = array.find(function (element) {
         return element === "View Subscriptions";
       });
-      if (found == undefined) array.push("View Subscriptions");
+      if (found === undefined) array.push("View Subscriptions");
       setprem(array);
     }
     handleChange(e);
@@ -154,7 +154,7 @@ function EditUser(props) {
       counter = counter - 1;
       setMovie_Counte(counter);
     }
-    if (counter == 0) {
+    if (counter === 0) {
       setdismovie(false);
       setmoviescheck(false);
       const index = array.indexOf("View Movies");
@@ -169,7 +169,7 @@ function EditUser(props) {
       const found = array.find(function (element) {
         return element === "View Movies";
       });
-      if (found == undefined) array.push("View Movies");
+      if (found === undefined) array.push("View Movies");
       setprem(array);
     }
     handleChange(e);

@@ -44,9 +44,7 @@ function Member(props) {
           <button
             className="moviebuttons membersbuttons2"
             onClick={() => {
-              if (window.confirm("Delete this member?")) {
                 Delete();
-              }
             }}
           >
             delete
@@ -55,9 +53,7 @@ function Member(props) {
           <button
             className="moviebuttons membersbuttons1"
             onClick={() => {
-              if (window.confirm("Delete this movie?")) {
                 Delete();
-              }
             }}
           >
             delete
